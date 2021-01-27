@@ -1,0 +1,36 @@
+// db1 -> database name
+// table name-> practice
+Database Query:
+    create database db1;
+    show databases db1;
+    drop database db1; 
+    Backup for database: Backup database db1 to disk ='c://Chirag';
+    Show all tables in databse: show tables;
+    use db1;
+
+Create table:
+    create table practice (
+    id int,
+    First_Name varchar(50),
+    Last_Name varchar(40),
+    Mobile_Number varchar(10)
+    );
+Insert values:
+    insert into table practice values(1,'Chirag','Goel',8708075681);
+Insert values from table1 to table2:
+    
+
+Alter Command: Add, Drop Column, Rename Column, Modify , Add Constraints.
+    alter table practice add column Father_Name varchar(10); // Add column
+    alter table practice drop column Mobile_Number;          // Drop column
+    alter table practice ADD Primary Key(id);                // Add Constraints 
+    alter table practice modify id varchar(50);              // modify
+    alter table practice rename column id to Roll_No;        // rename column
+Show table structure:
+    desc practice;
+    
+SQL (Structured Query Language)
+It is non-procedural Language in which you specify what you want not how to get it.
+Types: 1) DDL(Data Defination Language): provides command for defining relation schema, deleting relation, modifying relation
+       2) DML(Data Manipulation Language): command to insert tuple, delete tuples and modify tuples.
+
