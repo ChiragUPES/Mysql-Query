@@ -18,6 +18,13 @@ Create table:
 Insert values:
     insert into table practice values(1,'Chirag','Goel',8708075681);
 Insert values from table1 to table2:
+
+update table:
+
+update practice SET NAme='Chirag' where id=1;
+
+delete record:
+delete from practice where id=1;
     
 
 Alter Command: Add, Drop Column, Rename Column, Modify , Add Constraints.
@@ -32,5 +39,4 @@ Show table structure:
 SQL (Structured Query Language)
 It is non-procedural Language in which you specify what you want not how to get it.
 Types: 1) DDL(Data Defination Language): provides command for defining relation schema, deleting relation, modifying relation
-       2) DML(Data Manipulation Language): command to insert tuple, delete tuples and modify tuples.
-
+       2) DML(Data Manipulation Language): command to insert tuple, delete tuples and modify tuples
