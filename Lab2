@@ -1,1 +1,17 @@
+->order by column_name asc/desc;
+-> in table column name..sell_price. Output mein sellprice ki value ko *15 krke new sell_price Mein show krna hai
+    select sell_price *15 as new_sell_price from product_master ;
 
+update product_master SET sell_price=1150 where description='1.44floppies';
+delete from client_master where client_no=0001;
+update client_master SET city='Bombay' where client_no='0005';
+update client_master SET bal_due=1000 where client_no='0001';
+select product_no,description,sell_price*15 as new_sell_price  from product_master where sell_price >1500;
+select name from client_master where city Like '_a%';
+select name from client_master where name Like '_a%';
+select * from product_master order by description asc;
+select sum(Reorder_lvl) from product_master;
+select avg(sell_price) as average_price from product_master;
+select min(sell_price)  from product_master;
+select max(sell_price) as max_price , min(sell_price) as min_price from product_master;
+select count(product_no) from product_master where sell_price>=1500;
