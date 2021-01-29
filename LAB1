@@ -1,0 +1,46 @@
+Numeric data type-> decimal(10,2)-> decimal k badd 2 digits
+                    decimal(6)-> 6 numbers
+
+create table client_master(
+        client_no varchar(6) primary key,name varchar(20),
+        address1 varchar(30),address2 varchar(30),
+        city varchar(15),state varchar(15), 
+        pincode decimal(6),bal_due decimal(10,2)
+);
+    
+create table product_master(product_no varchar(6) primary key,description varchar(20),
+    profit_percent decimal(5,2),unit_measure varchar(8),
+    Qty_on_hand decimal(6),Reorder_lvl decimal(6) , 
+    sell_price decimal(10),Cost_price decimal(10));
+    
+ insert into client_master values('0001','Ivan','','','Bombay','Maharastra',400054,15000);
+ insert into client_master values('0002','Vandana','','','Madras','TamilNadu',780001,0);
+ insert into client_master values('0003','Pramada','','','Bombay','Maharastra',400057,5000);
+ insert into client_master values('0004','Basu','','','Bombay','Maharastra',400056,0);
+ insert into client_master values('0005','Ravi','','','Delhi','',100001,2000);
+ insert into client_master values('0006','Rukmini','','','Bombay','Maharastra',400050,0);
+ 
+ insert into product_master values('P00001','1.44floppies',5,'piece',100,20,525,500);
+ insert into product_master values('P03453','Monitors',6,'piece',10,3,12000,11200);
+ insert into product_master values('P06734','Mouse',5,'piece',20,5,1050,500);
+ insert into product_master values('P07865','1.22floppies',5,'piece',100,20,525,500);
+ insert into product_master values('P07868','Keyboards',2,'piece',10,3,3150,3050);
+ insert into product_master values('P07885','CDDrive',2.5,'piece',10,3,5250,5100);
+ insert into product_master values('P07965','540HDD',4,'piece',10,3,8400,8000);
+ insert into product_master values('P07975','1.44Drive',5,'piece',10,3,1050,1000);
+ insert into product_master values('P08865','1.22Drive',5,'piece',2,3,1050,1000);
+ 
+ Q/A:
+ 
+select name from client_master;
+select name,city from client_master;
+select distinct(description) from product_master;
+select name from client_master where city='Bombay';
+select * from client_master where client_no=0001 OR client_no=0002;
+select * from product_master where description='1.22Drive' OR description='1.44Drive';
+select description from product_master where sell_price>5000;
+select * from client_master where city IN('Bombay','Delhi','Madras');
+select description from product_master where sell_price>2000 AND sell_price<=5000 ;
+select name,city,state from client_master where state Not In('Maharastra');
+ 
+ 
