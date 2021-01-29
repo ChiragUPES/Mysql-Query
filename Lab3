@@ -1,0 +1,5 @@
+Data Constraints: Restrictions over the table.
+Types: 1) Column Level Concept
+       2) Row level Concept
+       3) Null value Concept-> Primary key, Foreign key
+       4) Check Integrity Constraints: That name will be enterd only in upper case, no value starts with letter 'c'.
