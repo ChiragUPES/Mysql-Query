@@ -1,5 +1,34 @@
+Constraint-> 
+Primary Key Not null check(Salesman_no LIKE 'S%') // only start with S
+check(Ytd_sales >0) // decimal value not 0
+
+
+
 Data Constraints: Restrictions over the table.
 Types: 1) Column Level Concept
        2) Row level Concept
        3) Null value Concept-> Primary key, Foreign key
        4) Check Integrity Constraints: That name will be enterd only in upper case, no value starts with letter 'c'.
+       
+       // Not allow first character as 's'
+        // not null+ not 0
+        
+       
+ create table sales_master(
+       Salesman_no varchar(6) Primary Key Not null check(Salesman_no LIKE 'S%'),             
+       Sal_name varchar(20) not null,
+       Address varchar(20) not null,
+       City varchar(20),
+       State varchar(20),
+       Pincode decimal(6),
+       Sal_amt decimal(8,2) not null check(Sal_amt > 0),                       
+       Tgt_to_get decimal(6,2) not null check(Tgt_to_get > 0),
+       Ytd_sales decimal(6,2) not null check(Ytd_sales >0),
+       Remarks varchar(30)
+       );
+        
+        insert into sales_master values(
+       'S00004', 'Ashish', 'A/5 Juhu', 
+       'Mumbai','Mahartsra', 400044, 
+             3500, 200,
+        150,'Good');
