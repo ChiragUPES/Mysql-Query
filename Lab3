@@ -40,12 +40,22 @@ Types: 1) Column Level Concept
   dely_add varchar(6),
   salesman_no varchar(6) references sales_master(Salesman_no),
   dely_type varchar(1) Default'F',
-  Constraint dely_type check(dely_type like 'P'||'F'),                  
-  billed_type date ,                    
+  Constraint dely_type check(dely_type like 'P'||'F'),                                     
   dely_date date check(dely_date>S_order_date),                   
   order_status varchar(15) Check(order_status like 'In Process' || 'Filled' || 'BackOrder' || 'Canceled')   
 );
-
+alter table sales_order modify column billed_type varchar(1);
+insert into sales_order values(
+       '019001',STR_TO_DATE('01-12-2019', '%m-%d-%Y'),
+       '0001','','S00001','P',
+       STR_TO_DATE('01-20-2019', '%m-%d-%Y'),
+       'In Process');
+insert into sales_order values(
+       '019002',STR_TO_DATE('01-25-2019', '%m-%d-%Y'),
+       '0002','','S00002','',
+       STR_TO_DATE('01-27-2019', '%m-%d-%Y'),
+       'In Process');
+       
 
 create table  sales_order_details(
 S_order_no varchar(6) references sales_order(S_order_no),
@@ -54,3 +64,6 @@ Qty_order decimal(8),
 Qty_disp decimal(8),
 Product_rate decimal(10,2)
 );
+
+
+
