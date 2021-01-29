@@ -1,8 +1,7 @@
 Constraint-> 
 Primary Key Not null check(Salesman_no LIKE 'S%') // only start with S
 check(Ytd_sales >0) // decimal value not 0
-
-
+Foreign key mein dono k datatype same hona chaiye.
 
 Data Constraints: Restrictions over the table.
 Types: 1) Column Level Concept
@@ -32,3 +31,17 @@ Types: 1) Column Level Concept
        'Mumbai','Mahartsra', 400044, 
              3500, 200,
         150,'Good');
+  
+  
+  create table sales_order(
+  S_order_no varchar(6) Primary Key check(S_order_no Like '0%'),
+  S_order_date Date ,
+  Client_no varchar(25) references client_master(client_no),
+  dely_add varchar(6),
+  salesman_no varchar(6) references sales_master(Salesman_no),
+  dely_type varchar(1) Default'F',
+  Constraint dely_type check(dely_type like 'P'||'F'),                  
+  billed_type date ,                    
+  dely_date date check(dely_date>S_order_date),                   
+  order_status varchar(15) Check(order_status like 'In Process' || 'Filled' || 'BackOrder' || 'Canceled')   
+);
