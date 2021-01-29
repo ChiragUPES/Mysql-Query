@@ -45,3 +45,12 @@ Types: 1) Column Level Concept
   dely_date date check(dely_date>S_order_date),                   
   order_status varchar(15) Check(order_status like 'In Process' || 'Filled' || 'BackOrder' || 'Canceled')   
 );
+
+
+create table  sales_order_details(
+S_order_no varchar(6) references sales_order(S_order_no),
+Product_no varchar(6) references product_master(product_no),
+Qty_order decimal(8),
+Qty_disp decimal(8),
+Product_rate decimal(10,2)
+);
