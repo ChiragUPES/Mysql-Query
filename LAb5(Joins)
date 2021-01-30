@@ -1,1 +1,13 @@
+// Joins Important topic
+Sometimes we require to treat more than one table so to achieve it we can use join.
+joins on the bases of that column that have same data type and data in the tables.
+table that have to join comes in from clause
+and condition in where clause.
+Algo of join in sql->
+1) Cartesian product of tables(From Clause) 
+2) condition in where caluse
+3) project column specified in select caluse.
 
+Two tables -> student, course
+CartesianProduct-> select B.*,P.* from student B, course P;
+Inner join-> 
