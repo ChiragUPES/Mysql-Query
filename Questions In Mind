@@ -1,1 +1,2 @@
 Ques1) How we can delete all the tables present in table in one query.(Foreighn key are also in the table)
+Ques2) Can we make same column both as primary key as well as foreign key? yes, there is no problem with that.
