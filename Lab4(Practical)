@@ -1,0 +1,46 @@
+//Add primary key as well as foreign key to same column in challan_details table
+// There is only one primary key in one table. (because it creates clustered index).
+// how to drop primary key in table -> alter table table_name drop primary key;
+// how t add primary key in table-> alter table table_name add primary key(id);
+
+create table challan_header(
+challan_no varchar(6) Primary Key,
+s_order_no varchar(6) references sales_order(S_order_no),
+challan_date date not null,
+bille_yn char(1) default'N',
+check(bille_yn IN('Y','N'))
+);
+
+insert into challan_header values('CH9001','019001',STR_TO_DATE('12-12-1995', '%m-%d-%Y'),
+'Y');
+insert into challan_header values('CH865','046866',STR_TO_DATE('11-12-1995', '%m-%d-%Y'),
+'N');
+insert into challan_header values('CH3965','019003',STR_TO_DATE('10-12-1995', '%m-%d-%Y')
+,'N'
+);
+
+// created challan_no as primary + foreign key
+create table challan_details(
+challan_no varchar(6) Primary Key,
+Product_no varchar(6) references product_master(product_no),
+Qty_disp decimal(4,2) not null
+);
+alter table challan_details drop Primary Key;
+
+insert into challan_details values('CH9001','P00001',4);
+insert into challan_details values('CH9001','P07965',1);
+insert into challan_details values('CH9001','P07885',1);
+insert into challan_details values('CH865','P07868',3);
+insert into challan_details values('CH865','P03453',4);
+insert into challan_details values('CH865','P00001',10);
+insert into challan_details values('CH3965','P00001',5);
+insert into challan_details values('CH3965','P07975',2);
+
+add a new column phone_no in client_master table? -> alter table client_master add phone_no decimal(10);
+make phone_no as primary key?-> alter table client_master add phone_no(id);
+add not null constraint in column ->  alter table product_master 
+                                      modify description varchar(20) not null,
+                                      modify profit_percent decimal(5,2) not null,
+                                      modify sell_price decimal(10,0) not null,
+                                      modify Cost_price decimal(10,0) not null;
+
