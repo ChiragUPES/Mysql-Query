@@ -1,0 +1,28 @@
+Modify the structure of tables.
+Alter command is used to change the structure of the table.
+
+Drop,add or repositioning a column
+alter table practice drop column_name;
+alter table practice ADD column_name int;
+alter table practice ADD column_name i after column2;
+
+Modify:
+alter table practice modify column_name char(10);
+
+table name change:
+alter table practice to practice2;
+
+alter table practice rename column id to roll;
+alter table practice add primary key(roll_no);
+
+drop table practice;
+
+Add constraint using alter table:
+1) Add Primary Key-> alter table tablename ADD Primary Key(column_name);
+2) Add Foreign Key-> alter table tablename Add Constraint CK Foreign Key(column_name) References tablename;
+
+We can drop the integrity constraint later on if we can not need that.
+alter table tablename drop Primary Key.
+alter table tablename drop Constraint constraintname; // like CK
+
+
