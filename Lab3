@@ -39,21 +39,15 @@ Types: 1) Column Level Concept
   Client_no varchar(25) references client_master(client_no),
   dely_add varchar(6),
   salesman_no varchar(6) references sales_master(Salesman_no),
-  dely_type varchar(1) Default'F',
-  Constraint dely_type check(dely_type like 'P'||'F'),                                     
+  dely_type varchar(1) check(dely_type IN('F','P')),                                   
   dely_date date check(dely_date>S_order_date),                   
-  order_status varchar(15) Check(order_status like 'In Process' || 'Filled' || 'BackOrder' || 'Canceled')   
+  order_status varchar(15) Check(order_status In('Ip','C','F','BO'))   
 );
 alter table sales_order modify column billed_type varchar(1);
 insert into sales_order values(
        '019001',STR_TO_DATE('01-12-2019', '%m-%d-%Y'),
        '0001','','S00001','P',
        STR_TO_DATE('01-20-2019', '%m-%d-%Y'),
-       'In Process');
-insert into sales_order values(
-       '019002',STR_TO_DATE('01-25-2019', '%m-%d-%Y'),
-       '0002','','S00002','',
-       STR_TO_DATE('01-27-2019', '%m-%d-%Y'),
        'In Process');
        
 
@@ -64,6 +58,15 @@ Qty_order decimal(8),
 Qty_disp decimal(8),
 Product_rate decimal(10,2)
 );
+
+insert into sales_order_details values('046865','P07868',3,3,3150);
+
+
+create table  check_in(
+ dely_type varchar(1) check(dely_type In('P','F')),                                                 
+  order_status varchar(15) check(order_status In('In Process','Filled','BackOrder','Canceled'))   
+);
+insert into check_in values('F','BackOrder');
 
 
 
