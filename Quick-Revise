@@ -4,10 +4,26 @@ Information->   The data which is useful to you at that time is information
 Example->       If we find the location of train. Than we go into the railway portal and find the location of train. That is info rest all the details showing in 
                 portal is data.
                 
-Database-> Database is a collection of information that is organized so that it can easily be accessed, managed or updated.
-        
+Database->      Database is a collection of information that is organized so that it can easily be accessed, managed or updated.
 
+Meta-data->     Data about data. Like in which location file is present.
 
+Attributes->    meta-data. Data required before creating the table like (Name, Location).
+
+File V/S DBMS->                           FILE                       |            DBMS
+                            1) Slow                                  | 1) Searching is fast
+                            2) Meta-data required                    | 2) Meta-data is not required before searching any information.
+                            3) Not efficient                         | 3) Memory Utilization is efficient.
+                            4) No such protocol                      | 4) Lots of Constraint for data redundancy like Primary key Constraint.
+                            5) No role based control                 | 5) Role based access control security protocol is implemented.
+                            6) No security protocols.(Only login id, | 6) Security protocols are implemented.
+                            pass is required to login)               |
+
+Redundancy->    Duplicacy of data
+
+Concurrency->   At a single time, multiple person can access the data.
+
+Schema->        Logical representaion of database.
 
 numeric datatype-> decimal(10,2)  //gives output after decimal upto 2 value
 create table tablename(name varchar(50));
@@ -72,6 +88,16 @@ alter->                     modify to tables structure.
                             Drop Foreign KEy->        alter table practice drop Constraint CK;// constraint name.
                             
 drop table->                drop table table_name.
+
+
+Difference B/w Delete, Drop, Truncate
+                                            Delete                                |         Drop                                   |      Truncate  
+                            1) Used when we want to delete row of table.          |   1) used when we want to delete whole table   |  1) Same as we use delete command as 
+                            2) Table structure is not affected.                   |   2) Table structue is afected                 |     the only difference is that it 
+                            3) Synstax-> delete from table_name;                  |   3) Syntax-> drop table table_name;           |     delete all the record in one move.
+                            4) If we delete particular row than we can Use        |   4) We can not rollback.                      |  2) Faster than delete.
+                               condition using where                              |                                                |  3) Table Structure maintained
+                            5) We can rollback.(Logs are maintained in it.)       |                                                |  4) We can not rollback.
 
 Note:
 1) There is only one primary key in a table as it will form clustered index.
