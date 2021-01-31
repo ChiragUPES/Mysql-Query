@@ -1,13 +1,33 @@
+Data->          Data is basically fact about the entity(real world object) that are recorded means that are stored somewhere. For example if we write in  notebook 
+                this is also data.
+Information->   The data which is useful to you at that time is information
+Example->       If we find the location of train. Than we go into the railway portal and find the location of train. That is info rest all the details showing in 
+                portal is data.
+                
+Database-> Database is a collection of information that is organized so that it can easily be accessed, managed or updated.
+        
+
+
+
 numeric datatype-> decimal(10,2)  //gives output after decimal upto 2 value
 create table tablename(name varchar(50));
 insert into table_name values('Chirag');
+
 In()->                      In operator is used to determine the speicific value in a set.-> select * from table_name where city IN('Bombay','China');
+
 Not in()->                  functoin makes sure that the expression proceeded does not have any of the values present in the argument.
+
 order by ->                 keyword which sort the result-set in ascending order or descending order. //select * from table_name order by column_name asc/desc.
                             print the output by price*15 as new_price-> select sell_price*15 as new_price from table_name;
+
 update ->                   update table_name set sell_price=150 where value=180;
+
 delete ->                   delete from table_name where 
+
 Like->                      like operator is used where we want to follow the specofoc pattern in a column. select name from client_master where city Like '_a%';
+
+Between ->                  between operator selects a value with in the range. Between operator are inclusive. Both starting and end value are inclusive.
+
 Aggerate function->         performing calculations on multiple rows of a single column and returing a single value. 5 fx. (count,sum,avg,min,max)
                             select min(sell_price) as min_price from product_master
 
@@ -52,6 +72,10 @@ alter->                     modify to tables structure.
                             Drop Foreign KEy->        alter table practice drop Constraint CK;// constraint name.
                             
 drop table->                drop table table_name.
+
+Note:
+1) There is only one primary key in a table as it will form clustered index.
+2) 
 
                             
                             
