@@ -1,0 +1,60 @@
+numeric datatype-> decimal(10,2)  //gives output after decimal upto 2 value
+create table tablename(name varchar(50));
+insert into table_name values('Chirag');
+In()->                      In operator is used to determine the speicific value in a set.-> select * from table_name where city IN('Bombay','China');
+Not in()->                  functoin makes sure that the expression proceeded does not have any of the values present in the argument.
+order by ->                 keyword which sort the result-set in ascending order or descending order. //select * from table_name order by column_name asc/desc.
+                            print the output by price*15 as new_price-> select sell_price*15 as new_price from table_name;
+update ->                   update table_name set sell_price=150 where value=180;
+delete ->                   delete from table_name where 
+Like->                      like operator is used where we want to follow the specofoc pattern in a column. select name from client_master where city Like '_a%';
+Aggerate function->         performing calculations on multiple rows of a single column and returing a single value. 5 fx. (count,sum,avg,min,max)
+                            select min(sell_price) as min_price from product_master
+
+How to define Primary Key-> Which uniquely defines the record in table.
+                            It must contains the unique and not null value.
+                            Syntax->  Column_name varchar(50) Primary Key Not Null.
+                            
+How to define Foreign Key-> basicaly used to link two tables.
+                            Foreign key is a field in one table that refers to primary key of another table.
+                            table containing foreign key is child key and another table is referenced or parent key.
+                            If any record in referenced table (i.e. the table who contain primary key) is deleted, all the corresponding records in the 
+                            referencing table will be deleted for the referential integrity. 
+                            Syntax-> id int references CLient_master(roll),  //dono ka datatype same hai
+                            
+Referntial integrity->      Concept in a database that is used to build and maintain logical relationship between tables .
+                            The main concept is that it does not allow to add any record in a table that contains the foreign key  
+                            
+Data Constraint->           restriction over the table
+                            limit the type of data which can go in the table
+                            This ensure the accuracy and reliablity of the data in databse.
+                            1) Not null -> ensure that column can not have null values                          // Not NULL
+                            2) Default-> provide the null value for a column when none value is specified.      // Default 'F'
+                            3) Unique-> ensures that all values are different                                   // id Unique Not NULL(Better use Primary Key)
+                            4) Primary Key-> uniqely identify each row/record in table.                         // Primary Key
+                            5) Check-> all the value in the column satisfy certain conditions.                  // check(Sales_man Like 'S%'), 
+                                                                                                                   check(Sales_man >0), 
+                                                                                                                   check(Sales_man IN('MAN','Women')), 
+                                                                                                                   check(Sales_man Not In('F'))
+                            6) index-> used to create and retrive data from the database very quickly.
+                            
+alter->                     modify to tables structure.
+                            can drop ,add or postioning of column
+                            Drop a column->           alter table table_name drop column_name;
+                            Add a column->            alter table table_name ADD EMP_ID int;
+                            Add column after that->   alter table table_name add emp_id int after roll;
+                            Modify ->                 alter table table_name modify column_name varchar(30);
+                            Table name changed->      alter table practice to practice2;
+                            Rename column->           alter table practice rename column id to roll;
+                            Add Primary key->         alter table practice add primary key(roll_no);
+                            Add Foreign Key->         alter table practice add constraints ck Foreign Key(column_name)  references  Client_master(client_no);
+                            Drop Primary Key->        alter table practice drop primary key;
+                            Drop Foreign KEy->        alter table practice drop Constraint CK;// constraint name.
+                            
+drop table->                drop table table_name.
+
+                            
+                            
+                            
+                            
+           
