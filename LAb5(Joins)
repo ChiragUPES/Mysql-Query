@@ -1,4 +1,5 @@
-// Joins Important topic
+                                                                       Joins 
+
 Sometimes we require to treat more than one table so to achieve it we can use join.
 joins on the bases of that column that have same data type and data in the tables.
 table that have to join comes in from clause
