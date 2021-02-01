@@ -1,1 +1,10 @@
+There is circumstance when we apply aggregate function not only to single set of tuple(row) but also to group of sets of tuples we specify this wish in SQL using 
+group by clause. Attribute given in the group clause are used to form a group.
+In grouping, we use having keyword rather than where for condition because we are applying conditions to whole set of tuples .
+
+Syntax-> select columnname, columnname from tablename Group By columnname Having searchcondition.
+
+
+
+
 
