@@ -1,3 +1,5 @@
 Ques1) How we can delete all the tables present in table in one query.(Foreighn key are also in the table)
 Ques2) Can we make same column both as primary key as well as foreign key? yes, there is no problem with that.
-Ques3) Why we can not make more than one primary key in a table? because it creates clustred index 
+Ques3) Why we can not make more than one primary key in a table? because it creates clustred index .
+Ques4) Display the s_order_date in the format “dd-mm-yy” e.g. “12- feb-96”
+Ques5) Find the date , 15 days after date
