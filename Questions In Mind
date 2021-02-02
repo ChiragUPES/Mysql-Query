@@ -3,3 +3,4 @@ Ques2) Can we make same column both as primary key as well as foreign key? yes, 
 Ques3) Why we can not make more than one primary key in a table? because it creates clustred index .
 Ques4) Display the s_order_date in the format “dd-mm-yy” e.g. “12- feb-96”
 Ques5) Find the date , 15 days after date
+Ques6) sales in the month of jun to july;(Dates wale kese kru samj nhi aa rhe. to_char() function hai koi )?
