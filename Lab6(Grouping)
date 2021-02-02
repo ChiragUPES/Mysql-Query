@@ -4,6 +4,13 @@ In grouping, we use having keyword rather than where for condition because we ar
 
 Syntax-> select columnname, columnname from tablename Group By columnname Having searchcondition.
 
+Ans1) select pm.description,sum(so.Qty_disp) from product_master as pm,sales_order_details as so where pm.product_no=so.Product_no group by pm.description;
+Ans2) select so.Product_no,pm.description,sum(so.Qty_disp*so.Product_rate) from product_master as pm,sales_order_details as so where pm.product_no=so.Product_no  
+      group by pm.description;
+Ans3) 
+
+      
+
 
 
 
