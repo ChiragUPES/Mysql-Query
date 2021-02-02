@@ -1,0 +1,17 @@
+How to create a second table using first one? Create table client_master2 AS SELECT * FROM client_master;
+Union clause-> The user can put the multiple queries and combine their output using union clause. So, union clause merge the output of two or more queries into a single 
+               set of row and column.
+Syntax->               
+SELECT columnname, columname
+FROM tablename 1
+UNION
+SELECT columnname, columnname
+From tablename2;
+
+Intersect Clause-> The use can put together multiple Queries and their output using the interest clause. The final output of the interest clause will be 
+                   Output =A single set of records which are common in both Query.
+                   SELECT columnname, columnname
+                   FROM tablename 1
+                   INTERSECT
+                   SELECT columnname, columnname
+                   FROM tablename 2;
