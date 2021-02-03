@@ -15,3 +15,35 @@ Intersect Clause-> The use can put together multiple Queries and their output us
                    INTERSECT
                    SELECT columnname, columnname
                    FROM tablename 2;
+                   
+ select product_no,description from product_master where product_no Not In(select Product_no from sales_order_details); 
+
+Ans1)   Qty_disp=0;
+        select  pm.product_no,pm.description from product_master as pm,sales_order_details as so where so.Qty_disp=0 and pm.product_no=so.Product_no ;                  
+Ans2)   select name,city,pincode from client_master where client_no=(select Client_no from sales_order where S_order_no=019001);
+Ans3)   select name from client_master where client_no In(select Client_no from sales_order where S_order_date<'2019-05-20');
+Ans4)   select cm.name from product_master as pm, client_master as cm,sales_order_details as sod,sales_order as so where pm.description='CDDrive' and 
+        pm.product_no=sod.Product_no and sod.S_order_no =so.S_order_no and so.Client_no=cm.client_no;    
+Ans5)   
+
+Ans6)  select pm.description
+       from client_master as cm,sales_order so,
+       sales_order_details as sod,
+       product_master as pm
+       where cm.name='Ivan' 
+       and cm.client_no=so.Client_no 
+       and so.S_order_no=sod.S_order_no 
+       and sod.Product_no=pm.product_no;
+
+Ans7)  
+Ans8) 
+
+Ans10) select product_no,description,Qty_on_hand,Cost_price from product_master where product_no Not In(select Product_no from sales_order_details);
+
+ 
+
+
+
+
+
+
