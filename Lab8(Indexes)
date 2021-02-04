@@ -1,1 +1,5 @@
-
+Index-> Database index is a data structure that improves the speed of operations in a table. Practically, indexes are also a type of table, which keep a primary key 
+        and pointer to each record in the actual table.
+        The insert and the update queries take time on the table having indexes whereas select statement becomes fast on those tables. The reason is that while doing 
+        insert or update , a database needs to insert or update the index values as well.
+        
