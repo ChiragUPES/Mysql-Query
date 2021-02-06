@@ -103,7 +103,18 @@ Note:
 1) There is only one primary key in a table as it will form clustered index.
 2) 
 
-                            
+Transaction -> means any change in the database.
+ACID property-> Atomicity means either entire transaction takes place or nothing will take place.
+                Consistency-> means data must be consistence before and after the transaction.
+                Isolation -> multipe transaction can occur withour interpting the other one.
+                Durablility-> all the changes which are done is permanently stored in database.
+                
+Normalization-> technique used to reduce a redundancy in a table.
+                1NF.
+                2NF-> Partial dependency not allowed means Non prime attributes should not be a part of CK.
+                3NF-> 2NF+Transitive depandency not allowed. means non prime atribute should not depend upon non prime value.
+                BCNF(BoyCode normal form) 3NF+ Left side must be super key.
+                
                             
                             
                             
