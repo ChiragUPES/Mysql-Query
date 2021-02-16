@@ -59,7 +59,8 @@ How to define Foreign Key-> basicaly used to link two tables.
                             Syntax-> id int references CLient_master(roll),  //dono ka datatype same hai
                             
 Referntial integrity->      Concept in a database that is used to build and maintain logical relationship between tables .
-                            The main concept is that it does not allow to add any record in a table that contains the foreign key  
+                            The main concept is that it does not allow to add any record in a table that contains the foreign key  unless the value present in 
+                            primary key table.
                             
 Data Constraint->           restriction over the table
                             limit the type of data which can go in the table
@@ -72,6 +73,7 @@ Data Constraint->           restriction over the table
                                                                                                                    check(Sales_man >0), 
                                                                                                                    check(Sales_man IN('MAN','Women')), 
                                                                                                                    check(Sales_man Not In('F'))
+                                                                                                                   CHECK (ISNUMERIC ( StNumber ))
                             6) index-> used to create and retrive data from the database very quickly.
                             
 alter->                     modify to tables structure.
@@ -94,7 +96,7 @@ Difference B/w Delete, Drop, Truncate
                                             Delete                                |         Drop                                   |      Truncate  
                             1) Used when we want to delete row of table.          |   1) used when we want to delete whole table   |  1) Same as we use delete command as 
                             2) Table structure is not affected.                   |   2) Table structue is afected                 |     the only difference is that it 
-                            3) Synstax-> delete from table_name;                  |   3) Syntax-> drop table table_name;           |     delete all the record in one move.
+                            3) Syntax-> delete from table_name;                  |   3) Syntax-> drop table table_name;           |     delete all the record in one move.
                             4) If we delete particular row than we can Use        |   4) We can not rollback.                      |  2) Faster than delete.
                                condition using where                              |                                                |  3) Table Structure maintained
                             5) We can rollback.(Logs are maintained in it.)       |                                                |  4) We can not rollback.
@@ -108,12 +110,74 @@ ACID property-> Atomicity means either entire transaction takes place or nothing
                 Consistency-> means data must be consistence before and after the transaction.
                 Isolation -> multipe transaction can occur withour interpting the other one.
                 Durablility-> all the changes which are done is permanently stored in database.
+Key is an attribute using which we can identified a row in a table.
+Primary Key-> It is the column or the group of column in a table that uniquely identifies row.
+Candidate Key-> minimal set of atributes using which identify tuple.
+Super Key-> If we add any attribute with the ck it will become super key.                 
+
                 
-Normalization-> technique used to reduce a redundancy in a table.
-                1NF.
-                2NF-> Partial dependency not allowed means Non prime attributes should not be a part of CK.
-                3NF-> 2NF+Transitive depandency not allowed. means non prime atribute should not depend upon non prime value.
-                BCNF(BoyCode normal form) 3NF+ Left side must be super key.
+Normalization-> technique used to reduce a redundancy in a table. Redundancy can be row level or column level. In row level there are multiple rows having same value.
+                So, if we want to reduce the row level duplicacy than we can use the concept of Primary Key That means value should not be null and should  be 
+                unique. Talking about column level duplicacy . Suppose there is the table name student which contains information about student and the course which 
+                he is studying and the faculty who is teaching  the course. 
+                SID   Sname     Cid       Cname         FID     FNAME     FSal
+                1      Ram       C1        DBMS         F1      John      5000
+                
+                
+                In the column level we can see the anomaly(means problem occur at certain time).
+                1) Insertion Anomoly-> As student table also contains inforation about the course. So, if in future university introduced new course.Than we can 
+                   not add into the table beacause student id is a primary key and no new student is enrolled in it.
+                2) Deletion anomoly-> Suppose there is only one student enroll in certain course. And he is also opting out from the course. So if we delete that 
+                   student record we also lost the information regarding the course.
+                3) Updation anomoly-> In student table, there is faculty information also present and if we want to update the salary of faculty than we have to 
+                   update the salary in each and every record where that faculty entry is there.
+                   So, to avoid column level duplicacy we can divide the table into multiple table.
+                   SID,Sname
+                   Cid,Cname
+                   Fid,Fname
+                
+                1NF-> Table should not contains any multivalued attribute.
+                Given table-> Rollno      name    Course
+                                1         Ram       C/C++
+                                2         Harsh     JAva
+                                3         Omkar     C/Dbms
+                                
+                 1NF will be-> Rollno     name      Course
+                                  1        Ram        C
+                                  1        Ram        C++
+                                  2        Harsh    Java
+                                  3         Omkar     C
+                                  3         Omkar     Dbms
+                  Here Rollno+Course will be primary key. which is also known as composite primary key.
+                  We can also detemine table into 2 tables
+                          |  Rollno    Name  |      Rollno    Course
+                          |  1         Ram   |        1         C
+                          |  2         Harsh |        1         C++
+                          |  3         Omkar |        2         Dbms
+                          | _________________|        3         Java
+                 So, Here Roll no would be primary key in the first table and in the second table Rollno will be foreign key which are refrences to primary key
+                 of first table.
+                 Note : Foreign key can not be null. As we are refrencing something and it will be null than we may lose data integrity.
+                        Foreign key can contain duplicate value.
+                        
+                 Closure Method-> This method is used to find all the Candidate Key
+                 Prime attribute-> Attribute which is used to make CK.
+                 Functional Dependency defines the relationship bw the attributes.
+                 Example-> R(ABCDE)
+                          FD-> {A->B,BC->D,E->C,D->A}
+                          Check which value is on the right side.B,D,C,A. So remainining element E must be in the CK.
+                          E+=EC
+                          AE+=AEBCD
+                          BE+=
+                          CE+=
+                          DE+=
+                 
+                2NF-> Should be in 1NF.Partial dependency not allowed .Means all the non-prime attribute should not be partially dependent on CK. It should be
+                      fully depeendent on CK.
+                3NF-> 2NF+Transitive depandency not allowed. means non-prime atribute should not depend upon non-prime value.
+                BCNF(BoyCode normal form) 3NF+ Left side must be super key or super key.
+                
+
                 
                             
                             
