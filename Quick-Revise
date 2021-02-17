@@ -48,6 +48,7 @@ Aggerate function->         performing calculations on multiple rows of a single
                             select min(sell_price) as min_price from product_master
 Group by->  Basically makes the group of rows that have same value. For example if there a university table and there are different department in that table. And 
             we find the number of student in that department we can use group by.
+having-> Having keyword is added into the sql because we can not use where keyword with aggregate functions.            
             
 
 How to define Primary Key-> Which uniquely defines the record in table.
