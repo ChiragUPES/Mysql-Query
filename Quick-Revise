@@ -50,7 +50,11 @@ Group by->  Basically makes the group of rows that have same value. For example 
             we find the number of student in that department we can use group by.
 having-> Having keyword is added into the sql because we can not use where keyword with aggregate functions. So, when we use group by and if we want to give condition
           so we can use having keyword.
-            
+
+diffrence bw char and varchar2-> Both of these datatype are used for character but varchar2 is used to store the string of variable length but char is used for fixed 
+              length.
+Case manipulation fx-> 1) Lower 2) Upper  3) INITCAP(First letter in upper case and rest in lower case).
+View in sql-> these are kind of virtual table. It also has row and column like a real table.
 
 How to define Primary Key-> Which uniquely defines the record in table.
                             It must contains the unique and not null value.
@@ -211,6 +215,8 @@ Full Outer Join-> Union of both left+right.
 Self Join-> Self join is a join in which table joined with itself.                  
                   Syntax-> SELECT column_name(s) FROM table1 T1, table1 T2 WHERE condition;  
                             select t1.cid from Study as t1,study as t2 where t1.sid==t2.sid and t1.cid<>t2.cid;
+Index-> An index is a datastructure that improves the speed of data retrival operation on database. It is used to reduce the no. of calls on the hard-drive for 
+        searching of data.
 
                 
                             
