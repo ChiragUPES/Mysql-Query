@@ -46,6 +46,9 @@ Between ->                  between operator selects a value with in the range. 
 
 Aggerate function->         performing calculations on multiple rows of a single column and returing a single value. 5 fx. (count,sum,avg,min,max)
                             select min(sell_price) as min_price from product_master
+Group by->  Basically makes the group of rows that have same value. For example if there a university table and there are different department in that table. And 
+            we find the number of student in that department we can use group by.
+            
 
 How to define Primary Key-> Which uniquely defines the record in table.
                             It must contains the unique and not null value.
@@ -100,6 +103,7 @@ Difference B/w Delete, Drop, Truncate
                             4) If we delete particular row than we can Use        |   4) We can not rollback.                      |  2) Faster than delete.
                                condition using where                              |                                                |  3) Table Structure maintained
                             5) We can rollback.(Logs are maintained in it.)       |                                                |  4) We can not rollback.
+                                                                                                                                      5) truncate tablename;
 
 Note:
 1) There is only one primary key in a table as it will form clustered index.
@@ -176,7 +180,32 @@ Normalization-> technique used to reduce a redundancy in a table. Redundancy can
                       fully depeendent on CK.
                 3NF-> 2NF+Transitive depandency not allowed. means non-prime atribute should not depend upon non-prime value.
                 BCNF(BoyCode normal form) 3NF+ Left side must be super key or super key.
-                
+                Decomposition means to reduce redundancy , anamoly from database we divide a table into multiple tables.
+                Loseless Decomposition is basically when we reconstruct the decomposed table using joins than information will not lose.
+                Losesy Decomposition We are loosing the information when we reconstruct the decomposed data.
+
+Joins-> Joins is used when we have to combine the rows from two or more table. But there should be one common column in both the table using which we can join the
+        table.
+Types of joins->  Inner, Left-Outer,Right-Outer,Full-Outer Joins,Self join 
+Inner Join-> Inner joins return the records that have matching values in both the tables.
+              Synatx-> Select column_name from table1 inner join table2 on table1.column_name=table2.column_name.
+              Syntax-> SELECT Orders.OrderID, Customers.CustomerName, Shippers.ShipperName FROM ((Orders
+                       INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID)
+                       INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID); 
+              
+              
+Left Outer Join-> Return all the record from the left table and the matched record from the right table.
+                  Syntax-> SELECT column_name(s) FROM table1 LEFT JOIN table2 ON table1.column_name = table2.column_name;
+
+Right Outer Join-> Return all the record from the right table and matched the record from left table.
+                  Syntax->  SELECT column_name(s) FROM table1 RIGHT JOIN table2 ON table1.column_name = table2.column_name;
+
+Full Outer Join-> Union of both left+right.
+                  Syntax-> SELECT column_name(s) FROM table1 FULL OUTER JOIN table2 ON table1.column_name = table2.column_name WHERE condition; 
+
+Self Join-> Self join is a join in which table joined with itself.                  
+                  Syntax-> SELECT column_name(s) FROM table1 T1, table1 T2 WHERE condition;  
+                            select t1.cid from Study as t1,study as t2 where t1.sid==t2.sid and t1.cid<>t2.cid;
 
                 
                             
