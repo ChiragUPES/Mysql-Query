@@ -218,8 +218,9 @@ Self Join-> Self join is a join in which table joined with itself.
 Index-> An index is a datastructure that improves the speed of data retrival operation on database. It is used to reduce the no. of calls on the hard-drive for 
         searching of data.
 
-                
-                            
+Find maximum average salary-> select max(avg_salary) from (select worker_id, avg(salary) AS avg_salary group by);
+Find difference of max value and min value-> SELECT MAX(salary) - MIN(salary) DIFFERENCE FROM employees;
+Monthly sales record-> select year(order_date),month(order_date),sum(sale) from sales group by year(order_date),month(order_date)                            
                             
                             
            
