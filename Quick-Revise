@@ -40,7 +40,7 @@ update ->                   update table_name set sell_price=150 where value=180
 
 delete ->                   delete from table_name where 
 
-Like->                      like operator is used where we want to follow the specofoc pattern in a column. select name from client_master where city Like '_a%';
+Like->                      like operator is used where we want to follow the specific pattern in a column. select name from client_master where city Like '_a%';
 
 Between ->                  between operator selects a value with in the range. Between operator are inclusive. Both starting and end value are inclusive.
 
@@ -48,7 +48,8 @@ Aggerate function->         performing calculations on multiple rows of a single
                             select min(sell_price) as min_price from product_master
 Group by->  Basically makes the group of rows that have same value. For example if there a university table and there are different department in that table. And 
             we find the number of student in that department we can use group by.
-having-> Having keyword is added into the sql because we can not use where keyword with aggregate functions.            
+having-> Having keyword is added into the sql because we can not use where keyword with aggregate functions. So, when we use group by and if we want to give condition
+          so we can use having keyword.
             
 
 How to define Primary Key-> Which uniquely defines the record in table.
@@ -111,14 +112,17 @@ Note:
 2) 
 
 Transaction -> means any change in the database.
-ACID property-> Atomicity means either entire transaction takes place or nothing will take place.
+ACID property-> It is concept of transaction processing. And it has 4 properties.
+                Atomicity means either entire transaction takes place or nothing will take place.
                 Consistency-> means data must be consistence before and after the transaction.
                 Isolation -> multipe transaction can occur withour interpting the other one.
                 Durablility-> all the changes which are done is permanently stored in database.
 Key is an attribute using which we can identified a row in a table.
 Primary Key-> It is the column or the group of column in a table that uniquely identifies row.
 Candidate Key-> minimal set of atributes using which identify tuple.
-Super Key-> If we add any attribute with the ck it will become super key.                 
+Super Key-> If we add any attribute with the ck it will become super key.
+Foreign key-> It is used to create a relationship bw the table. The purpose of foreign key is to maintain the data integrity.
+
 
                 
 Normalization-> technique used to reduce a redundancy in a table. Redundancy can be row level or column level. In row level there are multiple rows having same value.
